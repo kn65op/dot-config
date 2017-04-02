@@ -1,0 +1,13 @@
+[merge]
+	tool = meld
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = simple
+
+[alias]
+	ci = commit
+	co = checkout
+	br = branch
+	st = status
+	lo = log --color --pretty=format:'%h - %s: %an, %ad'
