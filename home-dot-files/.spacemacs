@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -44,7 +45,7 @@ values."
      ;; ac-helm
 
      ;; gtags suport
-     gtags
+     ;; gtags
 
      ;;completion
      ;;irony
@@ -54,6 +55,9 @@ values."
 
      ;; c++
      c-c++
+
+     ;;schem lisp
+     scheme
 
      markdown
      ;; org
@@ -74,6 +78,7 @@ values."
                                       ;;irony-company
                                       company-irony
                                       ;;irony-mode
+                                      cmake-ide
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -313,7 +318,16 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   )
 
-(defun dotspacemacs/user-config (
+(defun dotspacemacs/user-config ()
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+  ;; _ as part of word
+  (with-eval-after-load 'evil
+    (defalias #'forward-evil-word #'forward-evil-symbol))
                                  ;;C++ fomratting
                                  (defun my-c-mode-common-hook ()
                                    "C mode customization hook."
@@ -324,7 +338,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                          c-tab-always-indent t
                                          c-echo-syntactic-information-p t)
                                    (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
-                                   (whitespace-mode 1)
+                                   (whitespace-mode 0)
                                    (hi-lock-mode 1)
                                    (hs-minor-mode 1)
                                    (linum-mode 1)
@@ -340,17 +354,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
                                  (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
                                  (add-hook 'c++-mode-hook 'my-c++-mode-hook)
-                                 )
-  "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
-layers configuration.
-This is the place where most of your configurations should be done. Unless it is
-explicitly specified that a variable should be set before a package is loaded,
-you should place your code here."
-  ;; _ as part of word
-  (with-eval-after-load 'evil
-    (defalias #'forward-evil-word #'forward-evil-symbol))
-  )
+  (global-linum-mode) ; Show line numbers by default
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
