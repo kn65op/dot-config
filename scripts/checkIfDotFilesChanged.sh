@@ -10,7 +10,7 @@ fi
 
 cd $HOME_DOT_FILES_DIR
 
-for FILE in .*
+for FILE in `find`
 do
 	if [ -f $FILE ]
 	then
