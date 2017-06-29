@@ -47,14 +47,12 @@ values."
      ;; gtags suport
      ;; gtags
 
-     ;;completion
-     ;;irony
-     ;;irony-company
-     ;;company-irony
-     ;;irony-mode
 
      ;; c++
      c-c++
+
+     ;; cmake-rtags - private layer
+     cmake-rtags
 
      ;;schem lisp
      scheme
@@ -77,8 +75,12 @@ values."
                                       irony
                                       ;;irony-company
                                       company-irony
+                                      company-mode
+                                      helm-company
                                       ;;irony-mode
                                       cmake-ide
+                                      rtags
+                                      ;;autocomplete-clang
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -253,7 +255,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup "maximized"
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -306,7 +308,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup "trailing"
    ))
 
 (defun dotspacemacs/user-init ()
