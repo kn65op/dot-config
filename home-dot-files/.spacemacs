@@ -71,16 +71,27 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      ;;completion
-                                      irony
-                                      ;;irony-company
-                                      company-irony
-                                      company-mode
-                                      helm-company
-                                      ;;irony-mode
+                                      clang-format
                                       cmake-ide
+                                      company-anaconda
+                                      company-c-headers
+                                      company-irony
+                                      company-rtags
+                                      company-quickhelp
+                                      company-statistics
+                                      flycheck
+                                      flycheck-pos-tip
+                                      flycheck-rtags
+                                      flyspell-correct-helm
+                                      helm-c-yasnippet
+                                      helm-company
+                                      helm-gitignore
+                                      irony
+                                      markdown-toc
+                                      plantuml-mode
                                       rtags
-                                      ;;autocomplete-clang
+                                      solarized-theme
+                                      yaml-mode
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
