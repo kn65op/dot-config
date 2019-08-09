@@ -45,4 +45,12 @@ clang-executable = '/usr/bin/clang-9'
 name = 'git'
 
 [[layers]]
-name = 'unite'
+name = 'denite'
+
+[options]
+  disabled_plugins = ["denite.nvim"]
+
+[[custom_plugins]]
+  name = "SpaceVim/denite.nvim"
+  merged = false
+  loadconf = true
