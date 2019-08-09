@@ -6,6 +6,7 @@ endfunction
 
 "call SpaceVim#custom#SPC('nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
 "function! SpaceVim#custom#SPC(m, keys, cmd, desc, is_cmd) abort
+
 function! myspacevim#after() abort
 endfunction
 
@@ -16,9 +17,9 @@ endfunction
 
 function! FormatOnSave() abort
   augroup fmt
-     autocmd!
-     autocmd BufWritePre * undojoin | Neoformat
-   augroup END
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+  augroup END
 endfunction
 
 "function! FindFileInGitRepository() abort

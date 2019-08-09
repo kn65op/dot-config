@@ -28,29 +28,35 @@
 
 # Enable autocomplete layer
 [[layers]]
-name = 'autocomplete'
-auto-completion-return-key-behavior = "complete"
-auto-completion-tab-key-behavior = "smart"
+  name = 'autocomplete'
+  auto-completion-return-key-behavior = "complete"
+  auto-completion-tab-key-behavior = "smart"
 
 [[layers]]
-name = 'shell'
-default_position = 'top'
-default_height = 30
+  name = 'shell'
+  default_position = 'top'
+  default_height = 30
 
 [[layers]]
-name = 'lang#c'
+  name = 'lang#toml'
+
+[[layers]]
+  name = 'lang#c'
 clang-executable = '/usr/bin/clang-9'
 
 [[layers]]
-name = 'git'
+  name = 'git'
 
 [[layers]]
-name = 'denite'
+  name = 'lang#vim'
 
-[options]
-  disabled_plugins = ["denite.nvim"]
+[[layers]]
+  name = 'denite'
 
-[[custom_plugins]]
-  name = "SpaceVim/denite.nvim"
-  merged = false
-  loadconf = true
+#[options]
+#disabled_plugins = ["denite.nvim"]
+
+#[[custom_plugins]]
+#name = "SpaceVim/denite.nvim"
+#merged = false
+#loadconf = true
