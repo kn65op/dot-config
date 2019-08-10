@@ -1,7 +1,8 @@
 function! myspacevim#before() abort
   call ConfigureYcm()
   call FormatOnSave()
-  autocmd FileType denite call DeniteMySettings()
+  autocmd FileType denite call DeniteMyKeymap()
+  "autocmd FileType denite-filter call DeniteMyFilterKeymap()
   "call SpaceVim#custom#SPC('nore', ['f', 'p'], 'call FindFileInGitRepository()', 'Find file in git repository', 1)
 endfunction
 
@@ -27,7 +28,7 @@ endfunction
   "echo "FIND func:"
 "endfunction
 "
-function! DeniteMySettings() abort
+function! DeniteMyKeymap() abort
   nnoremap <silent><buffer><expr> <CR>
     \ denite#do_map('do_action')
   nnoremap <silent><buffer><expr> d
@@ -42,3 +43,9 @@ function! DeniteMySettings() abort
     \ denite#do_map('toggle_select').'j'
 endfunction
 
+function! DeniteMyFilterKeymap() abort
+  map <silent><buffer> <PageUp>
+	  \ <Esc><C-w>p:call cursor(line('.')+1,0)<CR><C-w>pA
+  map <silent><buffer> <PageDown>
+    \ <Esc><C-w>p:call cursor(line('.')-1,0)<CR><C-w>pA
+endfunction
