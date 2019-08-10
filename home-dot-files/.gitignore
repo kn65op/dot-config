@@ -1,10 +1,12 @@
 *.kdev4
 .#*
+.attach*
 .cproject
+.idea
 .project
 .vscode
 NinjaBuild
 NinjaD
 build
-nbproject
 compile_commands.json
+nbproject
