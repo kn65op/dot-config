@@ -1,0 +1,10 @@
+*.kdev4
+.#*
+.cproject
+.project
+.vscode
+NinjaBuild
+NinjaD
+build
+nbproject
+compile_commands.json
