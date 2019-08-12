@@ -1,6 +1,8 @@
 *.kdev4
 .#*
 .attach*
+.clang
+.clangd
 .cproject
 .idea
 .project
