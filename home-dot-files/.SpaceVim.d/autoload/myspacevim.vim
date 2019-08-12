@@ -15,6 +15,8 @@ endfunction
 function! ConfigureYcm() abort
   let g:spacevim_enable_ycm = 1
   let g:spacevim_autocomplete_method = "ycm"
+  let g:ycm_clangd_binary_path = "clangd"
+  let g:ycm_use_clangd = 1
 endfunction
 
 function! FormatOnSave() abort
