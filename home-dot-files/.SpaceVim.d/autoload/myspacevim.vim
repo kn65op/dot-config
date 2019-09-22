@@ -1,4 +1,5 @@
 function! myspacevim#before() abort
+  call RemoveJKMappingToEsc()
   call ConfigureYcm()
   call FormatOnSave()
   autocmd FileType denite call DeniteMyKeymap()
@@ -10,6 +11,10 @@ endfunction
 "function! SpaceVim#custom#SPC(m, keys, cmd, desc, is_cmd) abort
 
 function! myspacevim#after() abort
+endfunction
+
+function! RemoveJKMappingToEsc() abort
+  iunmap jk
 endfunction
 
 function! ConfigureYcm() abort
