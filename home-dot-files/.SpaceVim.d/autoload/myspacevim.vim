@@ -5,6 +5,7 @@ function! myspacevim#before() abort
   autocmd FileType denite call DeniteMyKeymap()
   "autocmd FileType denite-filter call DeniteMyFilterKeymap()
   "call SpaceVim#custom#SPC('nore', ['f', 'p'], 'call FindFileInGitRepository()', 'Find file in git repository', 1)
+  call SetLinesMargin()
 endfunction
 
 "call SpaceVim#custom#SPC('nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
@@ -55,4 +56,8 @@ function! DeniteMyFilterKeymap() abort
 	  \ <Esc><C-w>p:call cursor(line('.')+1,0)<CR><C-w>pA
   map <silent><buffer> <PageDown>
     \ <Esc><C-w>p:call cursor(line('.')-1,0)<CR><C-w>pA
+endfunction
+
+function! SetLinesMargin() abort
+  set scrolloff=10
 endfunction
