@@ -53,6 +53,12 @@ clang-executable = '/usr/bin/clang-9'
 [[layers]]
   name = 'denite'
 
+[[layers]]
+  name = 'lang#markdown'
+
+[[layers]]
+  name = 'lang#plantuml'
+
 #[options]
 #disabled_plugins = ["denite.nvim"]
 
