@@ -1,11 +1,14 @@
 function! myspacevim#before() abort
+  call SetLinesMargin()
   call RemoveJKMappingToEsc()
-  call ConfigureYcm()
+  "call ConfigureYcm()
   call FormatOnSave()
   autocmd FileType denite call DeniteMyKeymap()
   "autocmd FileType denite-filter call DeniteMyFilterKeymap()
   "call SpaceVim#custom#SPC('nore', ['f', 'p'], 'call FindFileInGitRepository()', 'Find file in git repository', 1)
-  call SetLinesMargin()
+  "nnoremap <silent> <C-p> :call <SID>warp_denite('Denite file/rec/git')<cr>
+  call SetFGFindInGit()
+  "call DisableQuickFix()
 endfunction
 
 "call SpaceVim#custom#SPC('nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
@@ -60,4 +63,23 @@ endfunction
 
 function! SetLinesMargin() abort
   set scrolloff=10
+endfunction
+
+function! SetFGFindInGit() abort
+  call SpaceVim#custom#SPC('nore', ['p', 'g'], 'call call('
+        \ . string(s:_function('s:warp_denite')) . ', ["Denite file/rec/git"])',
+        \ ['find files in current git project',
+        \ [
+        \ '[SPC p g] is to find files added to git in the root of the current project',
+        \ '',
+        \ 'Definition: ' . s:filename . ':' . lnum,
+        \ ]
+        \ ],
+        \ 1)
+endfunction
+
+function! DisableQuickFix() abort
+  let g:prettier#quickfix_enabled = 0
+  let g:ale_set_quickfix = 0
+  let g:ale_set_loclist = 0
 endfunction

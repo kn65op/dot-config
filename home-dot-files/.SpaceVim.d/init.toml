@@ -23,8 +23,21 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
+    # bootstrap
     bootstrap_before = "myspacevim#before"
     bootstrap_after = "myspacevim#after"
+    # COC for C++ completion
+    autocomplete_method = "coc"
+    #disable showing errors on bottom
+    enable_neomake = false
+
+# The lsp for coc
+[[layers]] 
+    name = 'lsp'
+    filetypes = [
+        'c',
+        'cpp'
+    ]
 
 # Enable autocomplete layer
 [[layers]]
@@ -42,7 +55,7 @@
 
 [[layers]]
   name = 'lang#c'
-clang-executable = '/usr/bin/clang-9'
+  #clang-executable = '/usr/bin/clang-9'
 
 [[layers]]
   name = 'git'
@@ -63,6 +76,6 @@ clang-executable = '/usr/bin/clang-9'
 #disabled_plugins = ["denite.nvim"]
 
 #[[custom_plugins]]
-#name = "SpaceVim/denite.nvim"
+#name = "neoclide/coc.nvim"
 #merged = false
 #loadconf = true
