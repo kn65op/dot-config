@@ -9,6 +9,7 @@ function! myspacevim#before() abort
   "nnoremap <silent> <C-p> :call <SID>warp_denite('Denite file/rec/git')<cr>
   call SetFGFindInGit()
   "call DisableQuickFix()
+  call AddPastePossibilityForCommand()
 endfunction
 
 "call SpaceVim#custom#SPC('nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
@@ -82,4 +83,8 @@ function! DisableQuickFix() abort
   let g:prettier#quickfix_enabled = 0
   let g:ale_set_quickfix = 0
   let g:ale_set_loclist = 0
+endfunction
+
+function! AddPastePossibilityForCommand() abort
+  tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 endfunction
