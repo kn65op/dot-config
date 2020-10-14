@@ -72,6 +72,9 @@
 [[layers]]
   name = 'lang#plantuml'
 
+[[layers]]
+  name = "lang#python"
+
 #[options]
 #disabled_plugins = ["denite.nvim"]
 

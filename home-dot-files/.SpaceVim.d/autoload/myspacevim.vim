@@ -1,15 +1,15 @@
 function! myspacevim#before() abort
   call SetLinesMargin()
-  call RemoveJKMappingToEsc()
   "call ConfigureYcm()
   call FormatOnSave()
   autocmd FileType denite call DeniteMyKeymap()
   "autocmd FileType denite-filter call DeniteMyFilterKeymap()
   "call SpaceVim#custom#SPC('nore', ['f', 'p'], 'call FindFileInGitRepository()', 'Find file in git repository', 1)
   "nnoremap <silent> <C-p> :call <SID>warp_denite('Denite file/rec/git')<cr>
-  call SetFGFindInGit()
+  "call SetFGFindInGit()
   "call DisableQuickFix()
   call AddPastePossibilityForCommand()
+  call RemoveJKMappingToEsc()
 endfunction
 
 "call SpaceVim#custom#SPC('nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
@@ -19,7 +19,7 @@ function! myspacevim#after() abort
 endfunction
 
 function! RemoveJKMappingToEsc() abort
-  iunmap jk
+  let g:spacevim_escape_key_binding = ''
 endfunction
 
 function! ConfigureYcm() abort
@@ -30,6 +30,7 @@ function! ConfigureYcm() abort
 endfunction
 
 function! FormatOnSave() abort
+  echo ":KOTEK"
   augroup fmt
     autocmd!
     autocmd BufWritePre * undojoin | Neoformat
